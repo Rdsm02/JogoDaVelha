@@ -27,6 +27,9 @@ public class Jogo {
 	int playerX = 0;
 	int playerY = 0;
 	
+	/**
+	 * @wbp.parser.entryPoint
+	 */
 	public void chamarTelaDeJogo(String jogador1, String jogador2, String comeca) {
 		
 		String Jogador1 = jogador1;
@@ -43,7 +46,7 @@ public class Jogo {
 
 		janelaPrincipal = new JFrame();
 		janelaPrincipal.getContentPane().setBackground(Color.ORANGE);
-		janelaPrincipal.setIconImage(Toolkit.getDefaultToolkit().getImage("src/resources/images/iconeprincipal.png"));
+		janelaPrincipal.setIconImage(Toolkit.getDefaultToolkit().getImage(Jogo.class.getResource("/resources/images/iconeprincipal35x40.png")));
 		janelaPrincipal.setResizable(false);
 		janelaPrincipal.setUndecorated(true);
 		janelaPrincipal.setLocation(100, 100);
@@ -86,7 +89,7 @@ public class Jogo {
 			}
 		});
 		Botao_Fechar.setOpaque(false);
-		Botao_Fechar.setIcon(new ImageIcon("src/resources/images/botaoFecharok.png"));  
+		Botao_Fechar.setIcon(new ImageIcon(Jogo.class.getResource("/resources/images/botaoFecharok.png")));  
 		
 		
 		Botao_Fechar.setBounds(965, 0, 35, 40);
@@ -94,7 +97,7 @@ public class Jogo {
 		Panel_BarradeFerramentas.add(Botao_Fechar);
 		
 		JButton Botao_Maximizar = new JButton("");
-		Botao_Maximizar.setIcon(new ImageIcon("src/resources/images/botaomaximizarok.png"));
+		Botao_Maximizar.setIcon(new ImageIcon(Jogo.class.getResource("/resources/images/botaoMaximizar_35x40.jpg")));
 		Botao_Maximizar.setOpaque(false);
 		Botao_Maximizar.setBounds(930, 0, 35, 40);
 		Botao_Maximizar.setBorder(null);
@@ -109,18 +112,18 @@ public class Jogo {
 				
 			}
 		});
-		Botao_Minimizar.setIcon(new ImageIcon("src/resources/images/botaoMinimizarok.png"));
+		Botao_Minimizar.setIcon(new ImageIcon(Jogo.class.getResource("/resources/images/botaoMinimizarok.png")));
 		Botao_Minimizar.setOpaque(false);
 		Botao_Minimizar.setBounds(895, 0, 35, 40); //botaoMinimizarok
 		Botao_Minimizar.setBorder(null);
 		Panel_BarradeFerramentas.add(Botao_Minimizar);
 		
 		JLabel label = new JLabel("");
-		label.setIcon(new ImageIcon("src/resources/images/iconeprincipal35x40.png"));
+		label.setIcon(new ImageIcon(Jogo.class.getResource("/resources/images/iconeprincipal35x40.png")));
 		label.setBounds(2, 0, 35, 40);
 		Panel_BarradeFerramentas.add(label);
 		
-		JLabel lblTelaInicial = new JLabel("Tela Inicial - Agenda de Contatos");
+		JLabel lblTelaInicial = new JLabel("Jogo da Velha - Jogando...");
 		lblTelaInicial.setFont(new Font("Calibri", Font.PLAIN, 15));
 		lblTelaInicial.setBounds(45, 11, 201, 19);
 		Panel_BarradeFerramentas.add(lblTelaInicial);
