@@ -23,6 +23,8 @@ import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
 
 public class Login{
 
@@ -47,16 +49,13 @@ public class Login{
 		TelaInicio = new JFrame();		
 		TelaInicio.setUndecorated(true);
 		TelaInicio.getContentPane().setFont(new Font("Calibri", Font.PLAIN, 15));
-		TelaInicio.getContentPane().setBackground(Color.WHITE);
-		TelaInicio.setLocationRelativeTo(null);
+		TelaInicio.getContentPane().setBackground(Color.WHITE);		
 		TelaInicio.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		TelaInicio.setSize(350, 631);
-		TelaInicio.getContentPane().setLayout(null);		
+		TelaInicio.setLocationRelativeTo(null);
 		
 		JPanel Jpanel_Autenticacao = new JPanel();
-		Jpanel_Autenticacao.setBounds(0, 0, 350, 100);
 		Jpanel_Autenticacao.setBackground(new Color(34, 139, 34));
-		TelaInicio.getContentPane().add(Jpanel_Autenticacao);
 		Jpanel_Autenticacao.setLayout(null);
 		Jpanel_Autenticacao.addMouseListener(new MouseAdapter() {
 			
@@ -83,18 +82,14 @@ public class Login{
 		Jpanel_Autenticacao.add(LabelAutenticacao);
 		
 		JLabel TextoPrincipal = new JLabel("Digite o Nome dos Jogadores!");
-		TextoPrincipal.setBounds(10, 125, 330, 45);
 		TextoPrincipal.setHorizontalTextPosition(SwingConstants.CENTER);
 		TextoPrincipal.setHorizontalAlignment(SwingConstants.CENTER);
 		TextoPrincipal.setFont(new Font("Calibri", Font.PLAIN, 20));
-		TelaInicio.getContentPane().add(TextoPrincipal);
 		
 		JButton BotaoJogar = new JButton("Jogar!");
-		BotaoJogar.setBounds(10, 486, 330, 58);
 		BotaoJogar.setFont(new Font("Calibri", Font.PLAIN, 25));
 		BotaoJogar.setBackground(new Color(255, 102, 0));
 		BotaoJogar.setToolTipText("Clique aqui se estiver com todos os dados preenchidos para iniciar o jogo!");
-		TelaInicio.getContentPane().add(BotaoJogar);
 		BotaoJogar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent arg0) {
@@ -134,8 +129,6 @@ public class Login{
 		JButton btnSair = new JButton("Sair");
 		btnSair.setFont(new Font("Calibri", Font.PLAIN, 25));
 		btnSair.setBackground(new Color(255, 102, 0));
-		btnSair.setBounds(10, 567, 330, 58);
-		TelaInicio.getContentPane().add(btnSair);
 		btnSair.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
@@ -144,14 +137,11 @@ public class Login{
 			}
 		});
 		
-		Jogador1 = new JTextField(1);		
-		
-		Jogador1.setBounds(10, 193, 330, 45);
+		Jogador1 = new JTextField(1);
 		Jogador1.setFont(new Font("Calibri", Font.PLAIN, 15));
 		Jogador1.setText("Digite o Nome do Jogador 1");
 		Jogador1.setMinimumSize(new Dimension(15, 50));
 		Jogador1.setAlignmentX(Component.RIGHT_ALIGNMENT);
-		TelaInicio.getContentPane().add(Jogador1);
 		Jogador1.add(new JLabel("Nome:"));		
 		Jogador1.addFocusListener(new FocusAdapter() {
 			@Override
@@ -178,17 +168,13 @@ public class Login{
 		
 		
 		JLabel ImagemPassword = new JLabel("");
-		ImagemPassword.setBounds(10, 267, 25, 30);
 		ImagemPassword.setIcon(new ImageIcon("C:\\Users\\Rodrigo Moreira\\Workspace\\Testes Pessoais\\Agenda_Telefonica\\src\\images\\login_ico_l_4.png"));
-		TelaInicio.getContentPane().add(ImagemPassword);
 		
-		Jogador2 = new JTextField();		
-		Jogador2.setBounds(10, 256, 330, 45);
+		Jogador2 = new JTextField();
 		Jogador2.setText("Digite o Nome do Jogador 2");
 		Jogador2.setFont(new Font("Calibri", Font.PLAIN, 15));
 		Jogador2.setMinimumSize(new Dimension(15, 50));
 		Jogador2.setAlignmentX(Component.RIGHT_ALIGNMENT);
-		TelaInicio.getContentPane().add(Jogador2);
 		Jogador2.setColumns(10);
 		Jogador2.addMouseListener(new MouseAdapter() {
 			@Override
@@ -217,13 +203,9 @@ public class Login{
 		
 		JLabel lblQuemInicia = new JLabel("Quem Inicia?");
 		lblQuemInicia.setFont(new Font("Calibri", Font.PLAIN, 20));
-		lblQuemInicia.setBounds(36, 413, 108, 26);
-		TelaInicio.getContentPane().add(lblQuemInicia);
 		
 		JComboBox Verificacaodeinicio = new JComboBox();
 		Verificacaodeinicio.setModel(new DefaultComboBoxModel(new String[] {"Selecione o Jogador", "Jogador1","Jogador2"}));
-		Verificacaodeinicio.setBounds(156, 413, 146, 26);
-		TelaInicio.getContentPane().add(Verificacaodeinicio);
 		Verificacaodeinicio.addActionListener(new ActionListener() {
 			
 			@Override
@@ -234,18 +216,76 @@ public class Login{
 		});
 		
 		JButton Instruncao = new JButton("Instru\u00E7\u00F5es de Jogabilidade", new ImageIcon("src/depositphotos_145491147-stock-illustration-mark-pointer-sign-vector-green"));
-		Instruncao.setBounds(76, 347, 180, 28);
 		Instruncao.setToolTipText("Clique para ler as instruções do jogo!");
-		TelaInicio.getContentPane().add(Instruncao);
 		Instruncao.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				
-				JOptionPane.showMessageDialog(null, "Instruções de Jogabilidade", "Intrucao de Uso", JOptionPane.INFORMATION_MESSAGE, null);
-				
+
+				JOptionPane.showMessageDialog(null, "Instruções de Jogabilidade", "Intrucao de Uso",
+						JOptionPane.INFORMATION_MESSAGE, null);
+
 			}
 		});
+		
+		/*=====[INICIO DO LAYOUT DO PAINLE PRINCIPAL]=====*/
+		GroupLayout groupLayout = new GroupLayout(TelaInicio.getContentPane());
+		groupLayout.setHorizontalGroup(
+			groupLayout.createParallelGroup(Alignment.LEADING)
+				.addComponent(Jpanel_Autenticacao, GroupLayout.PREFERRED_SIZE, 350, GroupLayout.PREFERRED_SIZE)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGap(10)
+					.addComponent(TextoPrincipal, GroupLayout.PREFERRED_SIZE, 330, GroupLayout.PREFERRED_SIZE))
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGap(10)
+					.addComponent(Jogador1, GroupLayout.PREFERRED_SIZE, 330, GroupLayout.PREFERRED_SIZE))
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGap(10)
+					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+						.addComponent(ImagemPassword, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
+						.addComponent(Jogador2, GroupLayout.PREFERRED_SIZE, 330, GroupLayout.PREFERRED_SIZE)))
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGap(76)
+					.addComponent(Instruncao, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE))
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGap(36)
+					.addComponent(lblQuemInicia)
+					.addGap(12)
+					.addComponent(Verificacaodeinicio, GroupLayout.PREFERRED_SIZE, 146, GroupLayout.PREFERRED_SIZE))
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGap(10)
+					.addComponent(BotaoJogar, GroupLayout.PREFERRED_SIZE, 330, GroupLayout.PREFERRED_SIZE))
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGap(10)
+					.addComponent(btnSair, GroupLayout.PREFERRED_SIZE, 330, GroupLayout.PREFERRED_SIZE))
+		);
+		groupLayout.setVerticalGroup(
+			groupLayout.createParallelGroup(Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addComponent(Jpanel_Autenticacao, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)
+					.addGap(25)
+					.addComponent(TextoPrincipal, GroupLayout.PREFERRED_SIZE, 45, GroupLayout.PREFERRED_SIZE)
+					.addGap(23)
+					.addComponent(Jogador1, GroupLayout.PREFERRED_SIZE, 45, GroupLayout.PREFERRED_SIZE)
+					.addGap(18)
+					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGap(11)
+							.addComponent(ImagemPassword, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE))
+						.addComponent(Jogador2, GroupLayout.PREFERRED_SIZE, 45, GroupLayout.PREFERRED_SIZE))
+					.addGap(46)
+					.addComponent(Instruncao, GroupLayout.PREFERRED_SIZE, 28, GroupLayout.PREFERRED_SIZE)
+					.addGap(38)
+					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+						.addComponent(lblQuemInicia)
+						.addComponent(Verificacaodeinicio, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE))
+					.addGap(47)
+					.addComponent(BotaoJogar, GroupLayout.PREFERRED_SIZE, 58, GroupLayout.PREFERRED_SIZE)
+					.addGap(23)
+					.addComponent(btnSair, GroupLayout.PREFERRED_SIZE, 58, GroupLayout.PREFERRED_SIZE))
+		);
+		TelaInicio.getContentPane().setLayout(groupLayout);
+		
 		
 		
 	}
