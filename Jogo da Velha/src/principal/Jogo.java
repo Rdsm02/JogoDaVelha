@@ -18,6 +18,8 @@ import javax.swing.JTextArea;
 import javax.swing.border.BevelBorder;
 import java.awt.Toolkit;
 import javax.swing.SwingConstants;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
 
 
 public class Jogo {
@@ -52,14 +54,11 @@ public class Jogo {
 		janelaPrincipal.setLocation(100, 100);
 		janelaPrincipal.setSize(1000, 800);
 		janelaPrincipal.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		janelaPrincipal.getContentPane().setLayout(null);
 		janelaPrincipal.setVisible(true);
 		janelaPrincipal.setTitle("Jogo da Velha - Jogando...");
 		
 		JPanel Panel_BarradeFerramentas = new JPanel();
 		Panel_BarradeFerramentas.setBackground(Color.WHITE);
-		Panel_BarradeFerramentas.setBounds(0, 0, 1000, 40);
-		janelaPrincipal.getContentPane().add(Panel_BarradeFerramentas);
 		Panel_BarradeFerramentas.setLayout(null);
 		Panel_BarradeFerramentas.addMouseListener(new MouseAdapter() {
 			
@@ -131,8 +130,6 @@ public class Jogo {
 		JPanel PainelLateralEsquerdo = new JPanel();
 		PainelLateralEsquerdo.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
 		PainelLateralEsquerdo.setBackground(new Color(220, 220, 220));
-		PainelLateralEsquerdo.setBounds(10, 129, 331, 660);
-		janelaPrincipal.getContentPane().add(PainelLateralEsquerdo);
 		PainelLateralEsquerdo.setLayout(null);
 		
 		JLabel EstatticasDoJogo = new JLabel("Estat\u00EDticas da Partida");
@@ -203,8 +200,6 @@ public class Jogo {
 		JPanel panel = new JPanel();
 		panel.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
 		panel.setBackground(Color.WHITE);
-		panel.setBounds(351, 129, 639, 660);
-		janelaPrincipal.getContentPane().add(panel);
 		panel.setLayout(null);
 		
 		JButton A0 = new JButton("");		
@@ -348,19 +343,48 @@ public class Jogo {
 		botaoiniciar.setIcon(new ImageIcon("C:\\Users\\Rodrigo Moreira\\Workspace\\Testes Pessoais\\Interface_Grafica\\bin\\Agenda\\Images\\icon-1498823_960_720.png"));
 		botaoiniciar.setBorder(null);
 		botaoiniciar.setBackground(Color.ORANGE);
-		botaoiniciar.setBounds(10, 51, 120, 67);
-		janelaPrincipal.getContentPane().add(botaoiniciar);
 		botaoiniciar.setFont(new Font("Calibri", Font.BOLD, 17));
 		
 		JButton btnreiniciarjogo = new JButton("<html><center>Reiniciar<br> <center>Jogo</html>");
 		btnreiniciarjogo.setFont(new Font("Calibri", Font.BOLD, 17));
-		btnreiniciarjogo.setBounds(140, 51, 120, 67);
-		janelaPrincipal.getContentPane().add(btnreiniciarjogo);
 		
 		JButton btnresetarpontuao = new JButton("<html><center>Resetar<br> <center>Pontua\u00E7\u00E3o</html>");
 		btnresetarpontuao.setFont(new Font("Calibri", Font.BOLD, 17));
-		btnresetarpontuao.setBounds(270, 51, 120, 67);
-		janelaPrincipal.getContentPane().add(btnresetarpontuao);
+		
+		
+		/*=====[INICIO DO LAYOUT DO PAINLE PRINCIPAL]=====*/
+		GroupLayout groupLayout = new GroupLayout(janelaPrincipal.getContentPane());
+		groupLayout.setHorizontalGroup(
+			groupLayout.createParallelGroup(Alignment.LEADING)
+				.addComponent(Panel_BarradeFerramentas, GroupLayout.PREFERRED_SIZE, 1000, GroupLayout.PREFERRED_SIZE)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGap(10)
+					.addComponent(botaoiniciar, GroupLayout.PREFERRED_SIZE, 120, GroupLayout.PREFERRED_SIZE)
+					.addGap(10)
+					.addComponent(btnreiniciarjogo, GroupLayout.PREFERRED_SIZE, 120, GroupLayout.PREFERRED_SIZE)
+					.addGap(10)
+					.addComponent(btnresetarpontuao, GroupLayout.PREFERRED_SIZE, 120, GroupLayout.PREFERRED_SIZE))
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGap(10)
+					.addComponent(PainelLateralEsquerdo, GroupLayout.PREFERRED_SIZE, 331, GroupLayout.PREFERRED_SIZE)
+					.addGap(10)
+					.addComponent(panel, GroupLayout.PREFERRED_SIZE, 639, GroupLayout.PREFERRED_SIZE))
+		);
+		groupLayout.setVerticalGroup(
+			groupLayout.createParallelGroup(Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addComponent(Panel_BarradeFerramentas, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE)
+					.addGap(11)
+					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+						.addComponent(botaoiniciar, GroupLayout.PREFERRED_SIZE, 67, GroupLayout.PREFERRED_SIZE)
+						.addComponent(btnreiniciarjogo, GroupLayout.PREFERRED_SIZE, 67, GroupLayout.PREFERRED_SIZE)
+						.addComponent(btnresetarpontuao, GroupLayout.PREFERRED_SIZE, 67, GroupLayout.PREFERRED_SIZE))
+					.addGap(11)
+					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+						.addComponent(PainelLateralEsquerdo, GroupLayout.PREFERRED_SIZE, 660, GroupLayout.PREFERRED_SIZE)
+						.addComponent(panel, GroupLayout.PREFERRED_SIZE, 660, GroupLayout.PREFERRED_SIZE)))
+		);
+		janelaPrincipal.getContentPane().setLayout(groupLayout);
 	}
 	
 	
